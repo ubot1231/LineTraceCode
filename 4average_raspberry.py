@@ -20,9 +20,9 @@ def main():
     NUM_CH = 4 # A/D_channel
     # photorefSetting 
     photorefs = [ MCP3004(channel=idx) for idx in range(0,NUM_CH) ]
-    # 左右モーター設定(PWM)
+    # motorSetting
     motors = Robot(left=(PIN_AIN1,PIN_AIN2),right=(PIN_BIN1,PIN_BIN2),pwm=True)
-    # ループ処理
+    # loopProcessing
     while True:
         # 計測データの取得
         for idx in range(0,NUM_CH):
