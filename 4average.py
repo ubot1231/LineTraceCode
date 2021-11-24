@@ -28,9 +28,10 @@ def main():
 	while True:
 		# 計測データの取得
 		for idx in range(0,NUM_CH):
-			pr = photorefs[idx]
+			pr = photorefs[idx] # idx = [0,1,2,3]
 			v = pr.value # print表示，確認のための定義．
 
+			# フォトリフレクタの値をvalueに変換して，定義した各pに代入．
 			p0 = photorefs[0].value
 			p1 = photorefs[1].value
 			p2 = photorefs[2].value
@@ -40,7 +41,7 @@ def main():
 			print('{}:{:4.2f} '.format(idx+1,v),end=' ') 
 
             # 条件分岐について
-			# 閾値は0.5でいいのでは？白0.9および黒0.2程度．
+			# 閾値は0.5でいいのでは．白0.9および黒0.2程度を目安に．
 			# モータの左右，前進，後進組み合わせる．
 			# 場合により，外側が黒の場合は，もっと左右を火力全開にという感じで制御できるのでは．
 			# sleep分だけ，モータが動作すると考えて良い．
@@ -68,7 +69,8 @@ def main():
 		        motors.forward(curve_right=0.4)
 		        sleep(1)
 
-
+		# # 停止(Ctr+c)まで待機
+    	# pause()
 
 if __name__ == '__main__':
     main()
