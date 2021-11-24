@@ -1,4 +1,4 @@
-# autostart with systemd (havent implemented yet)
+# autostart with systemd (have not implemented yet)
 
 # import module
 from gpiozero import Button
