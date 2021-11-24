@@ -1,7 +1,5 @@
-# ディレクトリとファイルについて
-
-基本的に，Main.pyをメインのソースコードとしてアップロード．
-Main.py以外は，適当に試すために名前を変更したもの．
+# current main code
+4average_raspberry.py 202111241652
 
 ## 参考
 * https://www.ma-chanblog.com/2019/03/raspi-photo-reflector.html
