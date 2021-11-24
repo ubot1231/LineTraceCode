@@ -18,10 +18,10 @@ def main():
     """ メイン関数 """
     # 接続PIN
     PIN_BT = 3 # シャットダウンボタン用
-    PIN_AIN1 = 6 # モータ用
-	PIN_AIN2 = 5 # モータ用
-	PIN_BIN1 = 26 # モータ用
-	PIN_BIN2 = 27 # モータ用
+    PIN_AIN1 = 6 # モータ用 左
+	PIN_AIN2 = 5 # モータ用 左
+	PIN_BIN1 = 26 # モータ用 右
+	PIN_BIN2 = 27 # モータ用 右
 
 	NUM_CH = 4 # A/D変換チャネル数
     # フォトリフレクタ（複数）設定（A/D変換）
@@ -35,17 +35,20 @@ def main():
 		# 計測データの取得
 		for idx in range(0,NUM_CH):
 			pr = photorefs[idx]
-			v = pr.value # 仮に残してあるだけ
+			v = pr.value # print表示，確認のための定義．
 
 			p0 = photorefs[0].value
 			p1 = photorefs[1].value
 			p2 = photorefs[2].value
 			p3 = photorefs[3].value
+			
+			# フォトリフレクタの値表示
+			print('{}:{:4.2f} '.format(idx+1,v),end=' ') 
 
-			print('{}:{:4.2f} '.format(idx+1,v),end=' ') # フォトリフレクタの値表示
-            # 条件分岐
-			# 閾値は0.5でいいのでは？白0.9くらい黒0.2くらい
-			# モータの左右，前進，後進組み合わせる
+            # 条件分岐について
+			# 閾値は0.5でいいのでは？白0.9および黒0.2程度．
+			# モータの左右，前進，後進組み合わせる．
+			# 場合により，外側が黒の場合は，もっと左右を火力全開にという感じで制御できるのでは．
 
             # 白白白白 0000 前進
             if (p0 < 0.5 and p1 < 0.5 and p2 < 0.5 and p3 < 0.5) :
