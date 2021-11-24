@@ -10,15 +10,15 @@ from time import sleep
 
 
 def main():
-    # 接続PIN
+    # PIN
     PIN_BT = 3
     PIN_AIN1 = 6
     PIN_AIN2 = 5
     PIN_BIN1 = 26
     PIN_BIN2 = 27
 
-    NUM_CH = 4 # A/D変換チャネル数
-    # フォトリフレクタ（複数）設定（A/D変換）
+    NUM_CH = 4 # A/D_channel
+    # photorefSetting 
     photorefs = [ MCP3004(channel=idx) for idx in range(0,NUM_CH) ]
     # 左右モーター設定(PWM)
     motors = Robot(left=(PIN_AIN1,PIN_AIN2),right=(PIN_BIN1,PIN_BIN2),pwm=True)
